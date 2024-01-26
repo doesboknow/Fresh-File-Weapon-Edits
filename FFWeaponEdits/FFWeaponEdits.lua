@@ -26,7 +26,7 @@ local config = {
 
 }
 
-UnlockWeapons.config = config
+FFWeaponEdits.config = config
 
 if not config.ModEnabled then return end
 
