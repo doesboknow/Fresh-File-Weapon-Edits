@@ -46,26 +46,41 @@ if config.UnlockAllNonHiddenAspects then
 		-- removes requirements for upgrading weapons
         WeaponUpgradeData.DefaultGameStateRequirement.RequiredTrueFlags = nil
     end)
+
+    -- ModUtil.Table.NilMerge( GameStateFlagData, {
+    --     RunStartFlags = {
+    --         FistUnlocked = true,
+    --         GunUnlocked = true,
+    --         AspectsUnlocked = {
+    --             RequiredWeaponsUnlocked = true
+    --         }
+    --     }
+    -- }
+    -- )
 end
 
 if config.UnlockAllHiddenAspects then
     ModUtil.LoadOnce(function ()
-    -- unlocks sword hidden aspect
-    TextLinesRecord["NyxRevealsArthurAspect01"] = true 
-    -- unlocks spear hidden aspect
-    TextLinesRecord["AchillesRevealsGuanYuAspect01"] = true
-    -- unlocks shield hidden aspect
-    TextLinesRecord["ChaosRevealsBeowulfAspect01"] = true
-    -- unlocks bow hidden aspect
-    TextLinesRecord["ArtemisRevealsRamaAspect01"] = true
-    -- unlocks fist hidden aspect
-    TextLinesRecord["MinotaurRevealsGilgameshAspect01"] = true
-    -- unlocks gun hidden aspect
-    TextLinesRecord["ZeusRevealsLuciferAspect01"] = true  
+        -- unlocks sword hidden aspect
+        TextLinesRecord["NyxRevealsArthurAspect01"] = true 
+        -- unlocks spear hidden aspect
+        TextLinesRecord["AchillesRevealsGuanYuAspect01"] = true
+        -- unlocks shield hidden aspect
+        TextLinesRecord["ChaosRevealsBeowulfAspect01"] = true
+        -- unlocks bow hidden aspect
+        TextLinesRecord["ArtemisRevealsRamaAspect01"] = true
+        -- unlocks fist hidden aspect
+        TextLinesRecord["MinotaurRevealsGilgameshAspect01"] = true
+        -- unlocks gun hidden aspect
+        TextLinesRecord["ZeusRevealsLuciferAspect01"] = true  
     end)
 end
 
 if config.DifferentStartingWeaponEnabled then
 	-- sets the default weapon of Zagreus, which is also used when starting a fresh file.
-    HeroData.DefaultHero.DefaultWeapon = config.StartingWeapon
+    ModUtil.Path.Wrap("StartNewGame", function(baseFunc)
+        HeroData.DefaultHero.DefaultWeapon = config.StartingWeapon
+        return baseFunc
+    end, FFWeaponEdits)
 end
+
