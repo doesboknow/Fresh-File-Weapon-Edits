@@ -80,7 +80,7 @@ if config.DifferentStartingWeaponEnabled then
 	-- sets the default weapon of Zagreus, which is also used when starting a fresh file.
     ModUtil.Path.Wrap("StartNewGame", function(baseFunc)
         HeroData.DefaultHero.DefaultWeapon = config.StartingWeapon
-        return baseFunc
+        return baseFunc()
     end, FFWeaponEdits)
 end
 
