@@ -34,5 +34,6 @@ This is largely to assist with [Polycosmos](https://github.com/NaixGames/Polycos
 
 Credits:
 - the [Hades modding Discord server](https://discord.gg/AgFukwCK7K) for technical help & resources
+- [PonyWarrior](https://github.com/PonyWarrior) for PonyQOL (contained code to unlock hidden aspects)
 - [NaixGames](https://github.com/NaixGames) for creating Polycosmos
 - The [Archipelago Discord server](https://discord.gg/archipelago) for feedback/ideas
